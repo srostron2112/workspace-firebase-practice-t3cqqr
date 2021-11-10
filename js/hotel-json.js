@@ -9,7 +9,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 // object examples 
 var testJson = {};
 testJson["lastname"] = "zhang";
