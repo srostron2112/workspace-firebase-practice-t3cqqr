@@ -43,10 +43,10 @@ array1.forEach(element => console.log(element));
 */
 
 /* read the data from the database */
-/*
+
 firebase
   .firestore()
-  .collection("hoteldata")
+  .collection("hotelreservation")
   .onSnapshot(querySnapshot => {
     console.log(querySnapshot.size);
     querySnapshot.forEach(doc => {
@@ -55,4 +55,3 @@ firebase
       console.log(doc.data().checkout);
     });
   });
-*/
