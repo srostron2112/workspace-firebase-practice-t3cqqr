@@ -1,16 +1,25 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM",
-  authDomain: "grocerylist-91956.firebaseapp.com",
-  databaseURL: "https://grocerylist-91956.firebaseio.com",
-  projectId: "grocerylist-91956",
-  storageBucket: "grocerylist-91956.appspot.com",
-  messagingSenderId: "813812426276",
-  appId: "1:813812426276:web:93e5897af12892ff78dab1",
-  measurementId: "G-VZ83BTR72T"
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCnTiONA5kJi8Hroxd3dimv-AlRHeLnpOM",
+  authDomain: "csci225-bab55.firebaseapp.com",
+  projectId: "csci225-bab55",
+  storageBucket: "csci225-bab55.appspot.com",
+  messagingSenderId: "145918814164",
+  appId: "1:145918814164:web:8bdf18387236af79699841",
+  measurementId: "G-CRJL29Q68X"
 };
+
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-object examples 
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+// object examples 
 var testJson = {};
 testJson["lastname"] = "zhang";
 testJson["location"] = "aiken";
@@ -19,11 +28,14 @@ console.log(testJson);
 // enter data in
 $("input[type='button']").click(function(e) {
   //get the value of form
-  const inputdata = $("form").serializeArray();
+  const inputdata = $('form').serializeArray();
   console.log(inputdata);
   
   /* save the data to database */
-
+  var inputJson={};
+  inputJson['name'] = "Scott"
+  inputJson['checkin']="2021-11-15"
+  firebase.firestore().collection('hotelreservation').add(inputJson);
 
 
   /* clear the entry */
@@ -36,7 +48,7 @@ array1.forEach(element => console.log(element));
 */
 
 /* read the data from the database */
-
+/*
 firebase
   .firestore()
   .collection("hoteldata")
@@ -48,3 +60,4 @@ firebase
       console.log(doc.data().checkout);
     });
   });
+*/
