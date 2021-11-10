@@ -24,9 +24,13 @@ $("input[type='button']").click(function(e) {
   
   /* save the data to database */
   var inputJson={};
-  inputJson['name'] = "Scott"
-  inputJson['checkin']="2021-11-15"
-  firebase.firestore().collection('hotelreservation').add(inputJson);
+  for(var i = 0; i<inputdata.length; i++){
+    var n = inputdata[i]["name"];
+    var v = inputdata[i]["value"];
+    inputJson[n] = v;
+  }
+    
+    firebase.firestore().collection('hotelreservation').add(inputJson);
 
 
   /* clear the entry */
