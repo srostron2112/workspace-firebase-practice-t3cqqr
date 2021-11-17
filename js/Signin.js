@@ -1,30 +1,29 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM",
-  authDomain: "grocerylist-91956.firebaseapp.com",
-  databaseURL: "https://grocerylist-91956.firebaseio.com",
-  projectId: "grocerylist-91956",
-  storageBucket: "grocerylist-91956.appspot.com",
-  messagingSenderId: "813812426276",
-  appId: "1:813812426276:web:93e5897af12892ff78dab1",
-  measurementId: "G-VZ83BTR72T"
+const firebaseConfig = {
+  apiKey: 'AIzaSyCnTiONA5kJi8Hroxd3dimv-AlRHeLnpOM',
+  authDomain: 'csci225-bab55.firebaseapp.com',
+  projectId: 'csci225-bab55',
+  storageBucket: 'csci225-bab55.appspot.com',
+  messagingSenderId: '145918814164',
+  appId: '1:145918814164:web:8bdf18387236af79699841',
+  measurementId: 'G-CRJL29Q68X',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
 // save the data
-$("#Login").submit(function(e) {
+$('#Login').submit(function (e) {
   e.preventDefault();
   // get the user name and password from form
-  // You need to change this. 
-  var email = "yilianz4@gmail.com";
-  var password = "ddsgagafda";
+  // You need to change this.
+  var email = $("#Login-form input[name=login']").val();
+  var password = $("#Login-form input[name=pwd']").val();
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
-    .then(success => {
+    .then((success) => {
       // Signed in
       // ...
-      console.log("login in");
+      console.log('login in');
       let user = firebase.auth().currentUser;
 
       //user.updateProfile({ displayName: "Not sure" });
@@ -36,7 +35,7 @@ $("#Login").submit(function(e) {
         console.log(name + email + emailVerified);
       }
     })
-    .catch(error => {
+    .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorMessage);
