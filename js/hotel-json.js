@@ -51,9 +51,10 @@ firebase
   .collection('hotelreservation')
   .onSnapshot((querySnapshot) => {
     console.log(querySnapshot.size);
+
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
-      console.log(doc.data().room);
-      console.log(doc.data().checkout);
+      console.log(doc.data().choice);
+      console.log(doc.data().comment);
     });
   });
