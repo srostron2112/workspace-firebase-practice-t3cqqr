@@ -23,6 +23,8 @@ $("input[type='button']").click(function (e) {
   console.log(inputdata);
 
   /* save the data to database */
+  firebase.firestore().collection;
+
   var inputJson = {};
   for (var i = 0; i < inputdata.length; i++) {
     var n = inputdata[i]['name'];
@@ -46,10 +48,10 @@ array1.forEach(element => console.log(element));
 
 firebase
   .firestore()
-  .collection("hotelreservation")
-  .onSnapshot(querySnapshot => {
+  .collection('hotelreservation')
+  .onSnapshot((querySnapshot) => {
     console.log(querySnapshot.size);
-    querySnapshot.forEach(doc => {
+    querySnapshot.forEach((doc) => {
       console.log(doc.data());
       console.log(doc.data().room);
       console.log(doc.data().checkout);
